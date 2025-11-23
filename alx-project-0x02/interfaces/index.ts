@@ -1,3 +1,4 @@
-export interface Use {
-  name: string;
+export interface CardProps {
+  title: string;
+  content: string;
 }
