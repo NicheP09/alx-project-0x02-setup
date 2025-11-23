@@ -30,7 +30,6 @@ export const getStaticProps = async () => {
     const res = await fetch('https://jsonplaceholder.typicode.com/users');
     const data = await res.json();
 
-    // Map the fetched data to UserProps format
     const users: UserProps[] = data.map((u: any) => ({
       id: u.id,
       name: u.name,
