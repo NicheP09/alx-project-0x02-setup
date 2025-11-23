@@ -1,6 +1,7 @@
+// pages/home.tsx
 import React, { useState } from 'react';
-import Card from '../components/common/Card';
-import PostModal from '../components/common/PostModal';
+import Card from '@/components/common/Card';
+import PostModal from '@/components/common/PostModal';
 import { type Post } from '../interfaces';
 
 const HomePage = () => {
@@ -26,19 +27,22 @@ const HomePage = () => {
     <div className="p-6 space-y-4">
       <h1 className="text-3xl font-bold mb-4">Home Page</h1>
 
+      {/* Button to open the modal */}
       <button
         onClick={() => setModalOpen(true)}
-        className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+        className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition"
       >
         Add New Post
       </button>
 
+      {/* Post Modal */}
       <PostModal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
         onSubmit={handleAddPost}
       />
 
+      {/* Display posts */}
       {posts.map((post, index) => (
         <Card key={index} title={post.title} content={post.content} />
       ))}
