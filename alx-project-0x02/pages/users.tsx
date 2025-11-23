@@ -25,7 +25,7 @@ const UsersPage: React.FC<UsersPageProps> = ({ users }) => {
 };
 
 // Fetch users at build time
-export const getStaticProps = async () => {
+export async function getStaticProps() {
   try {
     const res = await fetch('https://jsonplaceholder.typicode.com/users');
     const data = await res.json();
@@ -44,6 +44,6 @@ export const getStaticProps = async () => {
     console.error('Failed to fetch users', error);
     return { props: { users: [] } };
   }
-};
+}
 
 export default UsersPage;
